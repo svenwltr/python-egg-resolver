@@ -11,6 +11,7 @@ __version__ = "1.0"
 __maintainer__ = "Sven Walter"
 __email__ = "sven.walter@wltr.eu"
 __date__ = "2012-05-05"
+__url__ = "https://github.com/svenwltr/python-egg-resolver"
 
 
 import os
