@@ -1,3 +1,17 @@
+"""
+This could be a possible alternative to virtual env. It is a small
+&quot;bootstrap&quot; file, that takes care about loading the right egg files
+in the pythonpath.
+"""
+
+__author__ = "Sven Walter <sven.walter@wltr.eu>"
+__copyright__ = "Copyright 2012, Sven Walter"
+__license__ = "MIT"
+__version__ = "1.0"
+__maintainer__ = "Sven Walter"
+__email__ = "sven.walter@wltr.eu"
+__date__ = "2012-05-05"
+
 
 import os
 import re
@@ -9,8 +23,8 @@ from distutils.version import StrictVersion
 RE_FIND = re.compile(r"^(([\-\w]+)(<=?|>=?|==|!=)([\w\.]+))$", re.MULTILINE).match
 PYTHON_VERSION = "%s.%s" % sys.version_info[0:2]
 
-class EggResolveError(ImportError): pass
 
+class EggResolveError(ImportError): pass
 
 class EggResolver(object):
 
@@ -53,7 +67,6 @@ class EggResolver(object):
             for f in os.listdir(p):
                 if f.endswith('.egg'):
                     self.filelist.append(os.path.join(p, f))
-                    
                 
                 
     def search_requirements(self, file_path):
@@ -67,7 +80,6 @@ class EggResolver(object):
                 else:
                     print >>sys.stderr, 'WARNING: Line "%s" in line "%s" not identified!' % (l, file_path)
                 
-            
         for line, pkg, cmp, ver in lines: #@ReservedAssignment
             ver_need = StrictVersion(ver)
             
